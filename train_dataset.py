@@ -57,23 +57,24 @@ from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X_train, y_train, test_size=0.1, random_state=42)
 
-TRAIN=True
-SAVE=True
-nRows=20
+TRAIN = True
+SAVE = True
+nRows = 20
 nCols = 20
-X_train=X_train.reshape(X_train.shape[0],nRows*nCols,1)
-X_test=X_test.reshape(X_test.shape[0],nRows*nCols,1)
-NB_FILTERS=20
-FILTER_SIZE=2
-POOL_SIZE=1
-P=0.1
-NB_CONV_LAYERS=7
+X_train = X_train.reshape(X_train.shape[0],nRows*nCols,1)
+X_test = X_test.reshape(X_test.shape[0],nRows*nCols,1)
+NB_FILTERS = 20
+FILTER_SIZE = 2
+POOL_SIZE = 1
+P = 0.1
+NB_CONV_LAYERS = 7
 
 # In[]
+# create model
 model=Sequential()
 model.add(Conv1D(filters=NB_FILTERS,
                         kernel_size=FILTER_SIZE,
-                        activation='relu',
+                        activation='sigmoid',
                         input_shape=(nRows*nCols,1)))
 
 model.add(MaxPool1D(pool_size=POOL_SIZE))
@@ -85,14 +86,46 @@ for _ in range(NB_CONV_LAYERS):
     model.add(MaxPool1D(pool_size=POOL_SIZE))
 model.add(Flatten())
 model.add(Dense(y_train.shape[1], activation='softmax'))
+
+# Compile model
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy','mae'])
 if TRAIN:
-    model.fit(X_train,y_train,batch_size=64,epochs=10)
+    # Fit the model
+    history = model.fit(X_train,y_train,validation_split=0.33,batch_size=64,epochs=150)
     if SAVE:
         model.save_weights('weights.h5')
 else:
     print("Weights loaded")
     model.load_weights('weights.h5')
+
+# evaluate the model
+scores = model.evaluate(X_train, y_train)
+print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
+
+
+import matplotlib.pyplot as plt
+# list all data in history
+print(history.history.keys())
+
+# summarize history for accuracy
+plt.plot(history.history['acc'])
+plt.plot(history.history['val_acc'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+
+
+plt.legend(['train', 'test'], loc='upper left')
+plt.show()
+# summarize history for loss
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.show()
+
 # In[]
 from sklearn.metrics import confusion_matrix
 predicted=np.argmax(model.predict(X_test),axis=1)
@@ -206,6 +239,12 @@ class DrawNN():
         network.draw()
         
 # In[]
+net_profile = []
+net_profile.insert(0,5)
 
-network = DrawNN( [10,10,5] )
+for i in range (0,NB_CONV_LAYERS):
+    net_profile.insert(i+1,7)
+
+net_profile.insert(NB_CONV_LAYERS+1,5)
+network = DrawNN(net_profile)
 network.draw()
