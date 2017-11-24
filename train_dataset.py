@@ -1,4 +1,5 @@
 __date__   = "August 2017"
+__author__   = "Nadia Tahiri"
 
 import os
 import numpy  as np
