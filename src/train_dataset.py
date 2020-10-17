@@ -42,8 +42,8 @@ def flatten(x):
         flatX[p]=np.ndarray.flatten(x[p])
     return flatX
 
-if os.path.isfile("data/simulation/simulation_dataset"):
-    X_train, y_train = lecture_data("data/simulation/simulation_dataset")
+if os.path.isfile("../data/simulation/simulation_dataset"):
+    X_train, y_train = lecture_data("../data/simulation/simulation_dataset")
     for k in range(X_train.shape[2]):
         X_train[:,:,k]=X_train[:,np.random.permutation(X_train.shape[1]),k]
     X_train = flatten(X_train)
