@@ -1,6 +1,9 @@
 The SARS-CoV-2 pandemic is among the most dangerous infectious diseases that have emerged in recent history.
 
 
+> **Reference** : Woo, P.C., Huang, Y., Lau, S.K. and Yuen, K.Y., 2010. Coronavirus genomics and bioinformatics analysis. viruses, 2(8), pp.1804-1820.
+
+
 # Evolution of gene ORF1ab
 Gene ORF1ab occupies more than two thirds of coronavirus genomes. It encodes the replicase polyprotein, being translated from ORF1a (11826 to 13425 nt) and ORF1b (7983 to 8157 nt) (Woo et al. 2010), and plays an important role in virus pathogenesis (Graham et al. 2008).
 
