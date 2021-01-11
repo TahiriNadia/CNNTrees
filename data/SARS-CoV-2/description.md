@@ -1,9 +1,5 @@
 The SARS-CoV-2 pandemic is among the most dangerous infectious diseases that have emerged in recent history.
 
-
-> **Reference** : Woo, P.C., Huang, Y., Lau, S.K. and Yuen, K.Y., 2010. Coronavirus genomics and bioinformatics analysis. viruses, 2(8), pp.1804-1820.
-
-
 # Evolution of gene ORF1ab
 Gene ORF1ab occupies more than two thirds of coronavirus genomes. It encodes the replicase polyprotein, being translated from ORF1a (11826 to 13425 nt) and ORF1b (7983 to 8157 nt) (Woo et al. 2010), and plays an important role in virus pathogenesis (Graham et al. 2008).
 
@@ -20,7 +16,7 @@ This gene is among the shortest in the SARS-CoV-2 genome. The protein E is a sma
 This gene is particularly important since it is responsible for assembly of new virus particles (Kandeel et al. 2020). 
 
 # Evolution of gene ORF6
-Gene ORF6 impacts the expression of transgenes (Mortiboys et al. 2015). The gene phylogeny of ORF6 (Fig. 3f) has multiple internal branches with low bootstrap support. 
+Gene ORF6 impacts the expression of transgenes (Mortiboys et al. 2015). 
 
 # Evolution of genes ORF7a and ORF7b
 The proteins encoded by coronavirus genes ORF7a and 7b have been demonstrated to have proapoptotic activity when expressed from cDNA (Schaecher et al. 2007). 
@@ -36,3 +32,9 @@ The protein ORF10 of SARS-CoV-2 includes 38-amino acids and its function is unkn
 
 # Evolution of the RB domain
 We carried out an independent analysis of the main evolutionary events characterizing the RB domain of the spike protein because of its major evolutionary importance. The S protein mediates the entry of the virus into the cells of the host species by binding to a host receptor through the RB domain located in its S1 subunit, and then merging the viral and host membranes in the S2 subunit. As SARS-CoV, SARS-CoV-2 also recognizes ACE2 as its host receptor binding to the S protein of the virus. Thus, the RB domain of the SARS-CoV-2 S protein is the most important target for the development of virus attachment inhibitors and vaccines (Tai et al. 2020).
+
+
+> **Reference** : 
+
+1. Woo, P.C., Huang, Y., Lau, S.K. and Yuen, K.Y., 2010. Coronavirus genomics and bioinformatics analysis. viruses, 2(8), pp.1804-1820.
+2. 
